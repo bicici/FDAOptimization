@@ -3,10 +3,16 @@ FDAOptimization
 
 Feature Decay Algorithms Optimization with Genetic Algorithms
 
-Copyright (c) 2013, Ergun Bicici <ergunbicici@yahoo.com>
+Copyright (c) 2013, Ergun Bicici, <ergunbicici@yahoo.com>
 
-The program is using genetic algorithms (GA) for optimization. 
-It uses inspyred package for optimization. 
+Citation:
+
+Ergun Bicici and Deniz Yuret, “Optimizing Instance Selection for Statistical Machine
+Translation with Feature Decay Algorithms”, IEEE/ACM Transactions On Audio,
+Speech, and Language Processing (TASLP), 2014.
+
+
+The program is using genetic algorithms (GA) for optimizing FDA. It uses inspyred package for optimization. 
 
 TO RUN:
 (1) Install the inspyred package:
