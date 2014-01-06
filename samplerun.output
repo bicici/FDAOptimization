@@ -1,0 +1,5 @@
+optimization settings: ('../fda/fda', 'data/train.en', 'data/train.de', 'data/dev.en', 'data/dev.de', 2, 92681)
+Optimization took: 5476.26002908
+../fda/fda -v1 -t92681 -d1.0 -c1.0089124001 -s0.886387647059 -i2.16465456164 -l1.89379071178 -n2 -o fda.optimization.config.selection data/train.en data/dev.en data/train.de data/dev.de
+FDA5 took: 37.7974550724
+Overall time: 5514.05750203
