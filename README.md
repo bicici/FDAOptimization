@@ -16,12 +16,19 @@ The program is using genetic algorithms (GA) for optimizing FDA. It uses inspyre
 
 TO RUN:
 (1) Install the inspyred package:
+
     unzip inspyred.zip
+
     bash build_distribution.sh
+
     python setup.py install
+
 (2) Prepare a config file for the optimization run. You can use the provided sample config file for this purpose: 
+
     fda.optimization.config
+
 (3) Run an optimized fda:
+
     python runoptFDA.py
 
 Sample run output is given in file samplerun.output and below:
