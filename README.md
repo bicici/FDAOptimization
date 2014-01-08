@@ -11,6 +11,10 @@ Ergun Bicici and Deniz Yuret, “Optimizing Instance Selection for Statistical M
 Translation with Feature Decay Algorithms”, IEEE/ACM Transactions On Audio,
 Speech, and Language Processing (TASLP), 2014.
 
+Feature Decay Algorithms (FDA) is developed as part of my PhD thesis:
+
+Ergun Biçici. The Regression Model of Machine Translation. PhD thesis, Koç University, 2011. Note: Supervisor: Deniz Yuret.
+
 
 The program is using genetic algorithms (GA) for optimizing FDA. It uses inspyred package for optimization. 
 
