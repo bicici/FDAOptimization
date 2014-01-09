@@ -3,7 +3,7 @@ FDAOptimization
 
 Feature Decay Algorithms Optimization with Genetic Algorithms
 
-Copyright (c) 2013, Ergun Bicici, <ergunbicici@yahoo.com>
+Copyright (c) 2014, Ergun Bicici, <ergunbicici@yahoo.com>
 
 Citation:
 
