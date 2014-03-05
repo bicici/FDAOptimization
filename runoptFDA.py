@@ -12,7 +12,6 @@ def callFDA(params, setting, outfile):
     
     traintest_str = train_source_path + ' ' + test_source_path + ' ' + train_target_path + ' ' + test_target_path
     cmd = fda_path + ' -v1 -t' + str(fda_numwords) +' -d'+str(d) +' -c'+str(c) + ' -s'+str(s) + ' -i'+str(i)+ ' -l'+str(l)+ ' -n'+str(fda_n) + ' -o ' + outfile + ' ' + traintest_str
-    print cmd
     call(cmd, shell=True)
 
 def parseParameters(fname):
@@ -60,23 +59,35 @@ def getSettings(configfile):
             sys.exit()
         return (fda_path, train_source_path, train_target_path, test_source_path, test_target_path, fda_n, fda_numwords)
 
+def runExperiment(configfile, numproc=0):
+    import optFDA
+    stime = time.time()
+    # Run FDA optimization
+    settings = getSettings(configfile)
+    print 'optimization settings:', settings
+    if numproc > 0:
+        cmd = 'python /ichec/home/users/ebicici/SMT/Tools/FDA/FDAOptimization/optFDA.py -c ' + configfile + ' -p ' + str(numproc) + ' > ' + configfile+'.optparams'
+        call(cmd, shell=True)
+    else:
+        cmd = 'python /ichec/home/users/ebicici/SMT/Tools/FDA/FDAOptimization/optFDA.py -c ' + configfile + ' > ' + configfile+'.optparams'
+        call(cmd, shell=True)
+    print 'Optimization took:', time.time() - stime
+    
+    fdastime = time.time()
+    settings = getSettings(configfile)
+    (params, tcov) = parseParameters(configfile+'.optparams')
+    
+    outfile = configfile + '.selection'
+    callFDA(params, settings, outfile)
+    print 'FDA5 took:', time.time() - fdastime
+    
+    print 'Overall time:', time.time() - stime
 
+if __name__ == '__main__':
+    configfile = sys.argv[1]
+    if len(sys.argv) == 3:
+        numproc = int(sys.argv[2])
+    else:
+        numproc = 0
+    runExperiment(configfile, numproc)
 
-stime = time.time()
-# Run FDA optimization for N=93K
-configfile = 'fda.optimization.config'
-settings = getSettings(configfile)
-print 'optimization settings:', settings
-cmd = 'python optFDA.py -c ' + configfile + ' > ' + configfile+'.optparams'
-call(cmd, shell=True)
-print 'Optimization took:', time.time() - stime
-
-fdastime = time.time()
-settings = getSettings(configfile)
-(params, tcov) = parseParameters(configfile+'.optparams')
-
-outfile = configfile + '.selection'
-callFDA(params, settings, outfile)
-print 'FDA5 took:', time.time() - fdastime
-
-print 'Overall time:', time.time() - stime
