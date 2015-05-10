@@ -20,12 +20,15 @@ The program is using genetic algorithms (GA) for optimizing FDA. It uses inspyre
 
 TO RUN:
 (1) Install the inspyred package:
-
+    
     unzip inspyred.zip
-
-    bash build_distribution.sh
-
-    python setup.py install
+    
+    PYTHONPATH=$PYTHONPATH:Paver-1.2.4/lib/python2.7/site-packages:Paver-1.2.4/lib/python3.4/site-packages bash build_distribution.sh
+    
+    # python2 installation
+    PYTHONPATH=$PYTHONPATH:Paver-1.2.4/lib/python2.7/site-packages python setup.py install
+    # python3 installation
+    PYTHONPATH=$PYTHONPATH:Paver-1.2.4/lib/python3.4/site-packages python3 setup.py install
 
 (2) Prepare a config file for the optimization run. You can use the provided sample config file for this purpose: 
 
