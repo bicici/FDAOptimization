@@ -33,7 +33,9 @@ TO RUN:
 
 (3) Run an optimized fda:
 
-    python runoptFDA.py
+    python runoptFDA.py fda.optimization.config [numproc]
+
+numproc is the optional parameter for the number of processors. Default value is 24.
 
 Sample run output is given in file samplerun.output and below:
 
